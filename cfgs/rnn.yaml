@@ -1,0 +1,13 @@
+DEVICE: 'cuda'
+CKPT: 'ckpts/rnn'
+TRAIN:
+  WEIGHTS: ''
+  SNAPSHOT: 1000
+  ITERS: 20000
+SOLVER:
+  UPDATE_ITER: 10000
+TEST:
+  SAVE_PATH: 'rnn_results'
+#  DATA_PATH: ''
+#  WEIGHTS: 'ckpts/rnn/'
+#  WEIGHTS: ''

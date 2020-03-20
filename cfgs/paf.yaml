@@ -1,0 +1,14 @@
+DEVICE: "cuda"
+CKPT: 'ckpts/pose'
+SOLVER:
+  LR: 0.0005
+  UPDATE_RATE: 0.1
+  UPDATE_ITER: 50000
+TRAIN:
+  ITERS: 1000000
+  SCALE: (512, 512)
+  BATCH_SIZE: 10
+#  SNAPSHOT: 1
+TEST:
+  WEIGHTS: "weights/mypaf.pth"
+  BATCH_SIZE: 2
