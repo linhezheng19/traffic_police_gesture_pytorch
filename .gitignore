@@ -2,7 +2,7 @@
 ckpts/*
 data/*
 weights/*
-!**/README.md
+!README.md
 
 # model weights
 *.pth
