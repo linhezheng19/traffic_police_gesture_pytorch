@@ -19,7 +19,7 @@ parser.add_argument("--b", help="detect bones, must set cam=True first",
                     default=False, action="store_true")
 parser.add_argument("--files", help="detect video files and save features",
                     default=False, action="store_true")
-parser.add_argument("--dir", help="video files path", default=None)
+parser.add_argument("--dir", help="video files path for a single file", default=None)
 parser.add_argument("--gpu_id", help="which gpu used", type=int, default=0)
 
 args = parser.parse_args()
