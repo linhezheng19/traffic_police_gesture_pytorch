@@ -31,7 +31,7 @@ def save_single_video(video, csv, out_path, gestures):
         rec, frame = cap.read()
         if rec:
             label = labels[frame_count]
-            gesture = gestures[label]  # english name
+            gesture = gestures[label]  # english name of gesture
             bar = np.zeros((height, subtitle_width, 3), dtype=np.uint8)
 
             cv2.putText(bar, gesture, (50, 400), cv2.FONT_HERSHEY_SIMPLEX,

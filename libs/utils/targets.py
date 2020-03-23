@@ -3,7 +3,8 @@ import torch
 
 
 def heatmap_one_kpt(x, y, size, var):
-    """Generate heatmap of one kpt.
+    """Generate heatmap of one keypoint.
+
     Params:
         x, y: coordinate of one key point
         size: the heatmap size
@@ -34,14 +35,15 @@ def heatmap_one_kpt(x, y, size, var):
 
 
 def paf_one_vector(pA, pB, size, limb_width):
-    """
-    Draw part affinity field of 1 vector. Return h,w,c
-    :param pA: start of bone vector
-    :param pB: end of bone vector
-    :param width:
-    :param height:
-    :param line_width:
-    :return: Heatmap with shape (h,w,c)
+    """Generate part affinity field of 1 vector. Return h,w,c.
+
+    Params:
+        pA: start of vector
+        pB: end of verctor
+        size: (h, w) of heatmap
+        limb_width: limb width to judge the point in limb or not
+    Returns:
+        a paf map of [h, w, 2]
     """
     height, width = size
     one = np.ones(size, dtype=np.float32)
@@ -86,12 +88,15 @@ def paf_one_vector(pA, pB, size, limb_width):
 
 
 def keypoints_heatmap(kpts, heat_size, stride, var):
-    """
-    Use network size label to create part confidence map. Return shape: 3 dimensions.
-    :param label: network size label, not original one
-    :param img_wh: network size
-    :param zoom_times: wh/zoom = heat size
-    :return: [joints, h, w]
+    """Generate heatmap of all keypoints, shape [num_kpts, h, w].
+
+    Params:
+        kpts: keypoints coordinates of all human in one img, [num_human*14, 3]
+        heat_size: feature map size of network output
+        stirde: downsample ratio
+        var: Gaussian variance
+    Returns:
+        heatmap of one img, [14, h, w]
     """
     kpts = kpts.reshape(-1, 14, 3)
     heat_one_img = []
@@ -114,12 +119,16 @@ def keypoints_heatmap(kpts, heat_size, stride, var):
 
 
 def part_affinity_field(kpts, heat_size, stride, pairs, limb_width):
-    """
-    Use network size label to create part affinity fields
-    :param label:
-    :param img_wh:
-    :param zoom_times:
-    :return: list of [p1b1, p1b2, p2b1, p2b2...] p: pair, b: bone. Shape: 3 dimensions
+    """Generate paf map for one img, shape [num_pafs, h, w].
+
+    Params:
+        kpts: keypoints coordinates of all human in one img, [num_human*14, 3]
+        heat_size: feature map size of network output
+        stirde: downsample ratio
+        pairs: connection orders of human key points
+        limb_width: limb width to judge a point in limb or not
+    Returns:
+        paf map for one img, shape [num_pafs, h, w]
     """
     # Check heat size divisible
     kpts = kpts.reshape(-1, 14, 3)
