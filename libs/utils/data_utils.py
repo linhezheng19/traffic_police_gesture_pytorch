@@ -112,13 +112,6 @@ def clip_npy_labels_by_time_step(features, labels, time_step):
     features = torch.cat(features_list, 0).view(-1, time_step, x, y)
     labels = torch.cat(labels_list, 0).view(-1, time_step)
 
-    # pad = feature_size % time_step
-    # if pad != 0:
-    #     npy = npy[:feature_size - pad]
-    #     labels = labels[:feature_size - pad]
-    # npy = npy.view(-1, time_step, x, y)
-    # labels = labels.view(-1, time_step)
-
     return features, labels
 
 
