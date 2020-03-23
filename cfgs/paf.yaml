@@ -1,5 +1,7 @@
-DEVICE: "cuda"
+DEVICE: 'cuda'
 CKPT: 'ckpts/pose'
+POSE:
+  NUM_KPTS: 14
 SOLVER:
   LR: 0.0005
   UPDATE_RATE: 0.1
@@ -10,5 +12,7 @@ TRAIN:
   BATCH_SIZE: 10
 #  SNAPSHOT: 1
 TEST:
-  WEIGHTS: "weights/mypaf.pth"
+  DATA_PATH: 'video/train'
+  SAVE_PATH: 'paf_features'
+  WEIGHTS: ''
   BATCH_SIZE: 2
