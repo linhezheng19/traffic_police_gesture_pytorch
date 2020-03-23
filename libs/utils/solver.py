@@ -47,7 +47,7 @@ class Optimizer(object):
             optimizer = torch.optim.Adam(params, self.lr)
 
         else:
-            # default use sgd
+            # sgd is the default optimizer
             optimizer = torch.optim.SGD(params, self.lr,
                                         momentum=self.solver.MOMENTUM)
         return optimizer

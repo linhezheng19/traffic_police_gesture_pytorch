@@ -51,6 +51,7 @@ class PafTrainer(object):
         return None
 
     def _test(self, model, loader, loss_func, device):
+        # It will enumerate all data in test dataset, which cost some time, so not used necessarily.
         model.eval()
         val_loss = 0
         for i, (_, feature, targets) in enumerate(loader):

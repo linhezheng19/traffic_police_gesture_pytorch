@@ -14,6 +14,7 @@ from libs.utils.augments import pad_resize, resize_annos, ia_augment
 
 
 class NpyDataset(Dataset):
+    # Dataset from csv files to train/test rnn network.
     def __init__(self, npy_dir, csv_dir, time_step, target_delay, num_classes):
         super(NpyDataset, self).__init__()
         self.features, self.labels = load_features_labels(
@@ -37,6 +38,7 @@ class NpyDataset(Dataset):
 
 
 class AIChallenger(Dataset):
+    # AIChallenger keypoints dataset.
     def __init__(self, anno_file, data_path, im_size, augments=True):
         super(AIChallenger, self).__init__()
         f = open(anno_file)
