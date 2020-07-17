@@ -35,11 +35,11 @@ def main():
     device = torch.device(cfg.DEVICE)
     # creat eval model
     if cfg.POSE.TYPE == 'paf':
-        model = PoseNet(cfg.POSE.NUM_PAFS, cfg.POSE.NUM_KPTS)
+        model = PafNet(cfg.POSE.NUM_PAFS, cfg.POSE.NUM_KPTS)
     load_weights(model, cfg.TEST.WEIGHTS)
     model.eval()
     model.to(device)
-    detector = PoseDetector(cfg.POSE.NUM_PAFS, cfg.POSE.NUM_KPTS)
+    detector = PafDetector(cfg.POSE.NUM_PAFS, cfg.POSE.NUM_KPTS)
     detect = Detect(model, detector, device, cfg.POSE.SCALE, cfg.POSE.KPT_THRESH)
     if args.cam:
         if args.b:
