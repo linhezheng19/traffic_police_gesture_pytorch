@@ -8,8 +8,8 @@ SOLVER:
   UPDATE_ITER: 10000
 TEST:
   SAVE_PATH: 'rnn_results'
-  NPY_PATH: 'rnn/train_npy'
-  CSV_PATH: 'rnn/train_csv'
+  NPY_DIR: 'rnn/train_npy'
+  CSV_DIR: 'rnn/train_csv'
 #  DATA_PATH: ''
 #  WEIGHTS: 'ckpts/rnn/'
 #  WEIGHTS: ''
