@@ -8,7 +8,7 @@ import cv2
 
 class PafDetector(nn.Module):
     def __init__(self, num_pafs, num_kpts):
-        super(PoseDetector, self).__init__()
+        super(PafDetector, self).__init__()
         self.num_pafs = num_pafs
         self.num_kpts = num_kpts
 
