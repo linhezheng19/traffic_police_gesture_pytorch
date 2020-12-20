@@ -13,11 +13,11 @@ Download AIChallenger human keypoint data, move the annotation files to
 
 For COCO, do the same as above, and modified the `NUM_KPTS` to 18 in `.yaml` file.
 
-start training:
+#### start training:
 
     $ python tools/train/train_paf.py --cfg PATH_TO_YAML_FILE
 
-inference:
+#### inference:
 
 Modified the `SAVE_PATH` in `.yaml` file to change the path for saving pose features as `.npy` file.
 
@@ -27,11 +27,11 @@ Modified the `SAVE_PATH` in `.yaml` file to change the path for saving pose feat
 Put the gesture files in `data/[data_name]`, and annotation files in `data/[data_name]`, modified the `NPY_PATH, CSV_PATH`
 of `TEST` in `.yaml` file, data is `.npy` files generate from pose net by inference above.
 
-start training:
+#### start training:
 
     $ python tools/train/train_rnn.py --cfg PATH_TO_YAML_FILE
 
-inference:
+#### inference:
 
     $ python tools/inference/infer_rnn.py --files --dir PATH_TO_NPY_FILE
 
