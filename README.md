@@ -42,8 +42,4 @@ We should input path of origin video, prediction file, output and format of vide
     $ python tools/inference/subtitle.py --v PATH_TO_VIDEOS --c PATH_TO_CSV_FILE --o PATH_TO_OUTPUT --t TYPE_OF_VIDEO
 
 ### Paper and data
-Origin implement is based on TensorFlow, all data and more details are in paper and origin repo. 
-
-[paper](https://doi.org/10.1016/j.neucom.2019.07.103)
-
-[origin repo](https://github.com/zc402/ChineseTrafficPolicePose)
+Origin implement is based on TensorFlow, all data and more details are in [paper](https://doi.org/10.1016/j.neucom.2019.07.103) and origin [repo](https://github.com/zc402/ChineseTrafficPolicePose). 
